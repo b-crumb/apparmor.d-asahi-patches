@@ -1,0 +1,30 @@
+# It expects that there is /usr/lib/@{multiarch}/sddm/sddm-helper instead??
+# DENIED  sddm exec /usr/lib/sddm/sddm-helper comm=sddm requested_mask=x denied_mask=x
+
+/{usr/,}lib/sddm/sddm-helper rix,
+
+# DENIED  sddm open /etc/locale.conf comm=sddm requested_mask=r denied_mask=r
+# DENIED  sddm open /etc/machine-id comm=sddm-helper requested_mask=r denied_mask=r
+## DENIED  sddm open /etc/shells comm=sddm-helper requested_mask=r denied_mask=r
+
+@{etc_ro}/locale.conf r,
+@{etc_ro}/shells r,
+@{etc_ro}/machine-id r,
+
+# DENIED  sddm capable comm=sddm capability=26 capname=sys_tty_config
+# debating how to handle this
+
+capability sys_tty_config,
+
+# ugh, have no idea what this should be about
+
+network netlink raw,
+
+# DENIED  sddm mknod /tmp/kwallet5_user.socket comm=sddm-helper requested_mask=c denied_mask=c
+
+owner /tmp/kwallet5_user.socket rw,
+
+# DENIED  sddm mknod /home/user/.local/share/sddm/wayland-session.log comm=sddm-helper requested_mask=c denied_mask=c
+# DENIED  sddm open /home/user/.local/share/sddm/wayland-session.log comm=sddm-helper requested_mask=wc denied_mask=wc
+
+@{HOME}/.local/share/sddm/wayland-session.log rw,

@@ -1,0 +1,5 @@
+# DENIED  child-systemctl capable comm=(sd-askpwagent) capname=sys_resource capability=24
+capability sys_resource,
+
+# DENIED  child-systemctl exec /usr/bin/systemd-tty-ask-password-agent comm=(sd-askpwagent) requested_mask=x denied_mask=x
+# see abstractions/authentication.d

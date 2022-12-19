@@ -1,0 +1,2 @@
+# DENIED  child-systemctl exec /usr/bin/systemd-tty-ask-password-agent comm=(sd-askpwagent) requested_mask=x denied_mask=x
+/{usr/,}/bin/systemd-tty-ask-password-agent rix,

@@ -1,0 +1,5 @@
+# If using resolvectl (this is sysd core, not sure why erroring), example
+# DENIED  systemd-timesyncd open /run/systemd/resolve/resolv.conf comm=systemd-timesyn requested_mask=r denied_mask=r
+# Has only @{run}/resolvconf/*.conf r,
+
+@{run}/systemd/resolve/*.conf r,

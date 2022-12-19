@@ -1,0 +1,3 @@
+# DENIED  xwayland open /sys/devices/platform/soc/406400000.gpu/uevent comm=Xwayland requested_mask=r denied_mask=r
+# DENIED  xwayland open /sys/devices/platform/soc/soc:display-subsystem/uevent comm=Xwayland requested_mask=r denied_mask=r
+# DENIED  xwayland open /run/user/1000/xauth_bhIFuu comm=Xwayland requested_mask=r denied_mask=r

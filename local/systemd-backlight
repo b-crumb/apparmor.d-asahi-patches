@@ -1,0 +1,9 @@
+# DENIED  systemd-backlight open /sys/devices/platform/soc/38bc00000.dcp/backlight/apple-panel-bl/type comm=systemd-backlig requested_mask=r denied_mask=r
+# DENIED  systemd-backlight open /sys/devices/platform/soc/38bc00000.dcp/backlight/apple-panel-bl/actual_brightness comm=systemd-backlig requested_mask=r denied_mask=r
+# and others...
+
+@{sys}/devices/platform/soc/**/backlight/apple-panel-bl/brightness rw,
+@{sys}/devices/platform/soc/**/backlight/apple-panel-bl/max_brightness r,
+@{sys}/devices/platform/soc/**/backlight/apple-panel-bl/uevent r,
+@{sys}/devices/platform/soc/**/backlight/apple-panel-bl/type r,
+@{sys}/devices/platform/soc/**/backlight/apple-panel-bl/actual_brightness r,

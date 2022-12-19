@@ -1,0 +1,4 @@
+# An example 
+# [   33.141346] ieee80211 phy0: brcmf_p2p_send_action_frame: Unknown Frame: category 0x5, action 0x4
+
+@{sys}/devices/platform/soc/**/net/*/{,**} r,

@@ -1,0 +1,12 @@
+# An example 
+# DENIED  NetworkManager open /sys/devices/platform/soc/590000000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/wlan0/ comm=NetworkManager requested_mask=r denied_mask=r
+
+@{sys}/devices/platform/soc/**/net/*/{,**} r,
+
+# If using resolvectl (this is sysd core, not sure why erroring), example
+# DENIED  systemd-timesyncd open /run/systemd/resolve/resolv.conf comm=systemd-timesyn requested_mask=r denied_mask=r
+# Has only:
+# @{run}/systemd/inhibit/[0-9]*.ref rw,
+# @{run}/systemd/users/@{uid} r,
+
+@{run}/systemd/resolve/*.conf r,
