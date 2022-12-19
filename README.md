@@ -1,6 +1,10 @@
-## apparmor-asahi-patches
+## apparmor.d-asahi-patches
 
-This is a BIG WIP.
+### What is this?
+
+This is a big WIP. I am working on porting all apparmor.d profiles (which need porting) to Asahi.
+
+### Repo
 
 Every folder BUT `succeeding-boot-disable/` has incomplete profiles adjusted for Asahi Linux devices (it will probably break anything but an M1 pro for now) (and adjusted for ALARM, also in general ARCH package tidbits).
 
