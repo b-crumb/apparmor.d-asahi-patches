@@ -16,11 +16,11 @@ install:
 
 install-disabled: install
 	# relative symlinks can be moved around
-	ln -rst $(DESTDIR)$(RULESDIR)/disable $(SYMLINKS_DISABLE_BOOTABLE)
+	ln -frst $(DESTDIR)$(RULESDIR)/disable $(SYMLINKS_DISABLE_BOOTABLE)
 
 install-production: install
 	# relative symlinks can be moved around
-	ln -rst $(DESTDIR)$(RULESDIR)/disable $(SYMLINKS_DISABLE)
+	ln -frst $(DESTDIR)$(RULESDIR)/disable $(SYMLINKS_DISABLE)
 
 uninstall:
 	rm -f $(LOCAL)
