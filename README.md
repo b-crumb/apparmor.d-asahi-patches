@@ -27,6 +27,7 @@ Setup:
 5. `pacman -U` it (FOLLOW THEIR INSTRUCTIONS ON GITHUB).
 6. `systemctl enable apparmor`.
 7. Have a side Asahi install ready in case you need to mount & disable Apparmor.
+8. `git clone` this repo, cd into dir, and then either `install-disabled` or `install-production`, probably the former first to have everything running, because latter might freeze your system, since it has `disable` disables. Whichever you choose, uninstall with the equivalent -*
 
 (did I miss anything?)
 
@@ -37,7 +38,9 @@ Contributing:
   * Find out what caused the freeze by disabling profiles. For example, you can binary "search" the bottom half of the profiles (abc sorted) `find . -maxdepth 1 -not -type d | sort -h | tail -n 565 | xargs ln -rst disable` (there is I think exactly 1030 profiles in total).
   * `aa-log | grep DENIED` might also help, this helps more though if boot was successful.
 3. Disable profiles you can't fix. Add those really needed disable (and not convenience `succeeding-boot-disable/`) to `disable`.
-4. Only add changes to `local` or `.d` files in the other subfolders, except the disable folders of course.
+4. Only add changes to `local`, `disable` (or `.d` files, in the other subfolders).
+  * You should be able to write your changes in the repo, make install- whichever you used, and then uninstall should catch too if you don't remove the file later.
+
 
 Main pain points:
 
