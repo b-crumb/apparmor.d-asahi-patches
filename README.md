@@ -35,7 +35,7 @@ Contributing:
 
 1. `shutdown -h now`.
 2. Boot, if boot does not work, use the side install and disable the thing. 
-  * Find out what caused the freeze by disabling profiles. For example, you can binary "search" the bottom half of the profiles (abc sorted) `find . -maxdepth 1 -not -type d | sort -h | tail -n 565 | xargs ln -rst disable` (there is I think exactly 1030 profiles in total).
+  * Find out what caused the freeze by disabling profiles. For example, you can binary "search" the bottom half of the profiles (abc sorted) `find . -maxdepth 1 -not -type d | sort -h | tail -n 515 | xargs ln -rst disable` (there is I think exactly 1030 profiles in total).
   * `aa-log | grep DENIED` might also help, this helps more though if boot was successful.
 3. Disable profiles you can't fix. Add those really needed disable (and not convenience `succeeding-boot-disable/`) to `disable`.
 4. Only add changes to `local`, `disable` (or `.d` files, in the other subfolders).
