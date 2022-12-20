@@ -5,8 +5,8 @@ ABSTRACTIONS=$(shell find abstractions -type f -print)
 LOCAL=$(shell find local -type f -printf "$(DESTDIR)$(RULESDIR)/local/%P\n")
 
 # we just need the files in RULESDIR, the files data in local is irrelevant
-SYMLINKS_DISABLE=$(shell find disable -type f -printf "$(DESTDIR)$(RULESDIR)/%P\n")
-SYMLINKS_DISABLE_BOOTABLE=$(shell find succeeding-boot-disable -type f -printf "$(DESTDIR)$(RULESDIR)/%P\n")
+SYMLINKS_DISABLE=$(shell find disable -type f -printf "%P\n")
+SYMLINKS_DISABLE_BOOTABLE=$(shell find succeeding-boot-disable -type f -printf "%P\n")
 
 all: ;
 
@@ -16,23 +16,23 @@ install:
 
 install-disabled: install
 	# relative symlinks can be moved around
-	ln -frst $(DESTDIR)$(RULESDIR)/disable $(SYMLINKS_DISABLE_BOOTABLE)
+	ln -frst $(DESTDIR)$(RULESDIR)/disable $(addprefix $(DESTDIR)$(RULESDIR)/,$(SYMLINKS_DISABLE_BOOTABLE))
 
 install-production: install
 	# relative symlinks can be moved around
-	ln -frst $(DESTDIR)$(RULESDIR)/disable $(SYMLINKS_DISABLE)
+	ln -frst $(DESTDIR)$(RULESDIR)/disable $(addprefix $(DESTDIR)$(RULESDIR)/,$(SYMLINKS_DISABLE))
 
 uninstall:
 	rm -f $(LOCAL)
 	rm -f $(addprefix $(DESTDIR)$(RULESDIR)/,$(ABSTRACTIONS))
 	# Yes, should be careful with this one. -type d -empty is safe enough.
-	find $(DESTDIR)$(RULESDIR)/abstractions -type d -empty -delete -printf "deleted %p"
+	find $(DESTDIR)$(RULESDIR)/abstractions -type d -empty -delete -printf "deleted %p\n"
 
 uninstall-disabled: uninstall
-	rm -f $(SYMLINKS_DISABLE_BOOTABLE)
+	rm -f $(addprefix $(DESTDIR)$(RULESDIR)/disable/,$(SYMLINKS_DISABLE_BOOTABLE))
 
 uninstall-production: uninstall
-	rm -f $(SYMLINKS_DISABLE)
+	rm -f $(addprefix $(DESTDIR)$(RULESDIR)/disable/,$(SYMLINKS_DISABLE))
 
 debug:
 	echo $(LOCAL)
