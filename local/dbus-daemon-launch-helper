@@ -1,1 +1,7 @@
-/{usr/,}lib/kauth/backlighthelper rPx,
+# errors such as:
+# DENIED  dbus-daemon-launch-helper exec /usr/lib/kauth/discretegpuhelper comm=dbus-daemon-lau requested_mask=x denied_mask=x
+# DENIED  dbus-daemon-launch-helper exec /usr/lib/kauth/chargethresholdhelper comm=dbus-daemon-lau requested_mask=x denied_mask=x
+# DENIED  dbus-daemon-launch-helper exec /usr/lib/kauth/backlighthelper info="profile transition not found" comm=dbus-daemon-lau requested_mask=x denied_mask=x error=-13
+# DENIED  dbus-daemon-launch-helper exec /usr/lib/kauth/kded-smart-helper comm=dbus-daemon-lau requested_mask=x denied_mask=x
+
+/{usr/,}lib/kauth/{,*} rPx,

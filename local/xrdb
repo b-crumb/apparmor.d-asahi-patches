@@ -1,0 +1,6 @@
+# DENIED  xrdb open /dev/tty comm=sh requested_mask=wr denied_mask=wr
+/dev/tty rw,
+
+# DENIED  xrdb exec /usr/bin/cpp comm=sh requested_mask=x denied_mask=x
+# DENIED  xrdb open /usr/bin/cpp comm=sh requested_mask=r denied_mask=r
+/{usr/,}bin/cpp  rix,
