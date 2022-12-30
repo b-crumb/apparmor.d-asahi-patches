@@ -11,3 +11,11 @@
 # DENIED  kwalletd5 open /home/user/.local/share/kwalletd/kdewallet_attributes.json comm=kwalletd5 requested_mask=r denied_mask=r
 
 include <abstractions/kde>
+
+# DENIED  kwalletd5 open /usr/share/qt/translations/qt_en.qm comm=kwalletd5 requested_mask=r denied_mask=r
+# DENIED  kwalletd5 open /usr/share/qt/translations/qtbase_en.qm comm=kwalletd5 requested_mask=r denied_mask=r
+# DENIED  kwalletd5 open /usr/share/qt/translations/qtscript_en.qm comm=kwalletd5 requested_mask=r denied_mask=r
+# DENIED  kwalletd5 open /usr/share/qt/translations/qtmultimedia_en.qm comm=kwalletd5 requested_mask=r denied_mask=r
+# DENIED  kwalletd5 open /usr/share/qt/translations/qtxmlpatterns_en.qm comm=kwalletd5 requested_mask=r denied_mask=r
+
+include <abstractions/qt5>

@@ -1,7 +1,31 @@
-# errors such as:
+# be assued that there were also errors here, but it was not convenient for me to insert them for the reason
+# that it was only late that I realized what the profile transitions implied... for the lower set of rules
+# but be assured that on folder execution permissions were lacking within the context
+
+/{usr/,}lib/kauth/{,*} rPx,
+
 # DENIED  dbus-daemon-launch-helper exec /usr/lib/kauth/discretegpuhelper comm=dbus-daemon-lau requested_mask=x denied_mask=x
 # DENIED  dbus-daemon-launch-helper exec /usr/lib/kauth/chargethresholdhelper comm=dbus-daemon-lau requested_mask=x denied_mask=x
 # DENIED  dbus-daemon-launch-helper exec /usr/lib/kauth/backlighthelper info="profile transition not found" comm=dbus-daemon-lau requested_mask=x denied_mask=x error=-13
 # DENIED  dbus-daemon-launch-helper exec /usr/lib/kauth/kded-smart-helper comm=dbus-daemon-lau requested_mask=x denied_mask=x
 
-/{usr/,}lib/kauth/{,*} rPx,
+/{usr/,}lib/kauth/backlighthelper rPux,
+/{usr/,}lib/kauth/chargethresholdhelper rPux,
+/{usr/,}lib/kauth/discretegpuhelper rPux,
+/{usr/,}lib/kauth/kded-smart-helper rPux,
+
+# DENIED  dbus-daemon-launch-helper open /sys/class/power_supply/ comm=chargethreshold requested_mask=r denied_mask=r
+# DENIED  dbus-daemon-launch-helper open /sys/class/leds/ comm=backlighthelper requested_mask=r denied_mask=r
+# DENIED  dbus-daemon-launch-helper open /sys/class/backlight/ comm=backlighthelper requested_mask=r denied_mask=r
+# DENIED  dbus-daemon-launch-helper open /dev/tty comm=backlighthelper requested_mask=r denied_mask=r
+# nothing was specified in abstracts
+
+@{sys}/class/power_supply/* r,
+@{sys}/class/leds/* r,
+@{sys}/class/backlight/* r,
+/dev/tty r,
+
+# DENIED  dbus-daemon-launch-helper capable comm=backlighthelper capability=12 capname=net_admin
+# ??? idk what to do with this
+# capability net_admin,
+# edit: seems after above it was not necessary??

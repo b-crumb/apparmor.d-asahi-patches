@@ -1,0 +1,25 @@
+# DENIED  keepassxc open /usr/share/qt/translations/qt_en.qm comm=keepassxc requested_mask=r denied_mask=r
+# DENIED  keepassxc open /usr/share/qt/translations/qtbase_en.qm comm=keepassxc requested_mask=r denied_mask=r
+# DENIED  keepassxc open /usr/share/qt/translations/qtscript_en.qm comm=keepassxc requested_mask=r denied_mask=r
+# DENIED  keepassxc open /usr/share/qt/translations/qtmultimedia_en.qm comm=keepassxc requested_mask=r denied_mask=r
+# DENIED  keepassxc open /usr/share/qt/translations/qtxmlpatterns_en.qm comm=keepassxc requested_mask=r denied_mask=r
+
+include <abstractions/qt5>
+
+# DENIED  keepassxc open /etc/xdg/kdeglobals comm=keepassxc requested_mask=r denied_mask=r
+# DENIED  keepassxc open /home/user/.config/kdedefaults/kdeglobals comm=keepassxc requested_mask=r denied_mask=r
+# DENIED  keepassxc open /home/user/.config/kdeglobals comm=keepassxc requested_mask=r denied_mask=r
+# DENIED  keepassxc open /home/user/.config/kdedefaults/kwinrc comm=keepassxc requested_mask=r denied_mask=r
+# DENIED  keepassxc open /home/user/.config/kwinrc comm=keepassxc requested_mask=r denied_mask=r
+# DENIED  keepassxc open /home/user/.config/KeePassXCrc comm=keepassxc requested_mask=r denied_mask=r
+
+include <abstractions/kde>
+
+# DENIED  keepassxc open /dev/tty comm=keepassxc requested_mask=r denied_mask=r
+# I am unsure about this one, maybe we shouldn't allow reads on tty
+
+/dev/tty r,
+
+# TODO
+# DENIED  keepassxc open /usr/share/color-schemes/... comm=keepassxc requested_mask=r denied_mask=r
+# DENIED  keepassxc open /usr/share/glvnd/egl_vendor.d/ comm=keepassxc requested_mask=r denied_mask=r

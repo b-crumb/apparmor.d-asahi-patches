@@ -28,6 +28,7 @@ install-production: install
 	ln -frst $(DESTDIR)$(RULESDIR)/disable $(addprefix $(DESTDIR)$(RULESDIR)/,$(SYMLINKS_DISABLE))
 
 check:
+	@printf "If this errors, assume that some files are not identical, so check what it printed to see which differ.\n\n"
 	@find local abstractions tunables -type f -printf "%p $(DESTDIR)$(RULESDIR)/%p\n" | xargs -n2 diff -qs
 	@$(foreach symlink,$(shell find succeeding-boot-disable -type f -printf "%P "),find $(DESTDIR)$(RULESDIR)/disable -type l -name "$(symlink)" -printf "disable/%P is there\n";)
 	@printf "\ngrep the symlink or file to check if it is there.\n"

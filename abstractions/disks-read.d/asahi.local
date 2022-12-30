@@ -1,0 +1,6 @@
+# DENIED  smartctl open /sys/devices/platform/soc/702280000.usb/xhci-hcd.1.auto/usb4/4-1/idVendor comm=smartctl requested_mask=r denied_mask=r
+# DENIED  smartctl open /sys/devices/platform/soc/702280000.usb/xhci-hcd.1.auto/usb4/4-1/4-1:1.0/host0/scsi_host/host0/proc_name comm=smartctl requested_mask=r denied_mask=r
+# DENIED  smartctl open /sys/devices/platform/soc/702280000.usb/xhci-hcd.1.auto/usb3/3-1/idVendor comm=smartctl requested_mask=r denied_mask=r
+# DENIED  smartctl open /sys/devices/platform/soc/702280000.usb/xhci-hcd.1.auto/usb3/3-1/3-1:1.0/host0/scsi_host/host0/proc_name comm=smartctl requested_mask=r denied_mask=r
+
+@{sys}/devices/platform/soc/*.usb/*/{usb,ata}[0-9]/** r,

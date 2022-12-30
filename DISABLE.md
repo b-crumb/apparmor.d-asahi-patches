@@ -1,0 +1,5 @@
+sorted descending by difficulty, first ones will be solved first
+
+keepassxc - this still errors and permissions are insufficient, there is a load of errors
+{bootctl,sddm} - similar to systemd-*
+systemd-* - this usually magically breaks the system with hard to log

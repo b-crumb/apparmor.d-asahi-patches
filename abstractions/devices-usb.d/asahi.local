@@ -1,0 +1,3 @@
+# DENIED  keepassxc open /run/media/[REDACTED]... comm=keepassxc requested_mask=r denied_mask=r
+
+@{run}/media/* r,
