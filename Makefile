@@ -28,9 +28,9 @@ install-production: install
 	ln -frst $(DESTDIR)$(RULESDIR)/disable $(addprefix $(DESTDIR)$(RULESDIR)/,$(SYMLINKS_DISABLE))
 
 check:
-	find local abstractions tunables -type f -printf "%p $(DESTDIR)$(RULESDIR)/%p\n" | xargs -n2 diff -qs
-	$(foreach symlink,$(shell find succeeding-boot-disable -type f -printf "%P "),find $(DESTDIR)$(RULESDIR)/disable -type l -name "$(symlink)" -printf "disable/%P is there\n";)
-	printf "\ngrep the symlink or file to check if it is there.\n"
+	@find local abstractions tunables -type f -printf "%p $(DESTDIR)$(RULESDIR)/%p\n" | xargs -n2 diff -qs
+	@$(foreach symlink,$(shell find succeeding-boot-disable -type f -printf "%P "),find $(DESTDIR)$(RULESDIR)/disable -type l -name "$(symlink)" -printf "disable/%P is there\n";)
+	@printf "\ngrep the symlink or file to check if it is there.\n"
 
 uninstall:
 	rm -f $(LOCAL)
@@ -50,7 +50,3 @@ debug:
 	echo $(ABSTRACTIONS_INSTALL)
 
 .PHONY: all install install-disabled install-production check uninstall uninstall-disabled uninstall-production debug
-
-ifndef VERBOSE
-.SILENT:
-endif
